@@ -10,7 +10,7 @@ CREATE TABLE "Expense" (
   "description" varchar(150),
   "amount" integer,
   "date_amount" date,
-  "user_id" int
+ /*  "user_id" int */ // llave foranea
 );
 
 ALTER TABLE "Expense" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");

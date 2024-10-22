@@ -3,30 +3,30 @@ const Expense = require("../models/Expense");
 const User = require("../models/User");
 
 const getAllUsers = () => {
-    return User.findAll({include:[Expense]})
+    return Expense.findAll({include:[User]})
 }
 
 const createUsers = (body) => {
-    return User.create(body)
+    return Expense.create(body)
 }
 
 const getOneUsers = (id) => {
-    return User.findByPk(id, {include:[Expense]})
+    return Expense.findByPk(id)
 }
 
 const updateUsers = (body ,id) => {
-    return User.update(
+    return Expense.update(
         body,
         { where: {id}, returning: true }
     );
 }
 
 const deleteUsers = (id) => {
-    return User.destroy({ where: {id} });
+    return Expense.destroy({ where: {id} });
 }
 
 const getUserServices = async (email) => {
-    return await User.findOne({ where: { email } });
+    return await Expense.findOne({ where: { email } });
   }
 
 module.exports = {
